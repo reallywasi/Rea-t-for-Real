@@ -41,7 +41,7 @@ function Video({title,bg}) {
 }
 export default Video;
 
-//_____________________________________________________video.css
+//________________________________________________________video.css
 
 .USSRFLAG{
     color: rgb(114, 110, 110);
