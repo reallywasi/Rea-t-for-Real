@@ -1,0 +1,364 @@
+JSX:
+It stands for Javascript XML. It is the syntax extension of Javascript which allows HTML to co-exist with Javascript in React.
+
+Why JSX is created?
+This feature makes sure that all the code stays unified to provide the developer with the best possible experience. It ensures that all files aren’t scattered at different locations.
+
+
+components 
+
+ek bar header component banayenge fir baar bar bar use import karte jayenge website ke har page me 
+
+
+components kewal src ke andar hi banaye ja sakte hai
+
+
+  <Header />
+      {/* header component import ho gaya and display bhi ho jyga  */}
+. to comeout of one directry
+.. to come back and back 
+
+. bahar jane ke liiye and / andar aane ke liye 
+
+name of jsx file always in capital
+
+ // creating component named header
+ // component ka name hamesha capital me ayga
+
+//defining a function Header to be used multiple times
+
+ const Header=()=>{
+    return(
+        <h1>Header is this </h1>
+    )
+ }
+//  export default Header ;
+ //default keyword bata ra h ki koi bhi is file se import karte to by default yehi header function import hoga
+
+ const Footer=()=>{
+    return(
+    <h1>Foot me hai ye </h1>
+    )
+ }
+
+
+//  to export multiple functions
+export{Header,Footer}
+// yaha se jis naame se export ho raha hai exactly usi naam se import hoga waha and data type too as yaha pe object { } hai to waha bhi yehi ayga
+
+// better way is to use file names in capital 
+
+small me likhenge to jsx consider hoga component as a html
+
+
+
+
+_____________________________________________________________________________________________________________---
+
+
+
+to create a new component code snippet use rafce and enter same like html me !
+
+
+
+_____________________________________________________________________________________________________________---
+
+
+props 
+
+component ko koi cheez like name wagera chahiye ho app.js ya kisi bhi aur file se to props use karte hai
+props app.jsx se footer.jsx ko bheje jate hai
+ie jo export kar raha hai use bhejte hai
+
+
+ 
+__________________________________________________________________________________________
+
+prop types
+
+
+
+__________________________________________________________________________________________
+
+
+###   if else in jsx
+
+{is ke andar js aati hai}
+
+in jsx file we cant use if else directly iske andar bhi
+eg.
+{
+login==false? A=5:A=6
+}
+
+
+###   to use long syntax of if else
+
+{
+
+(()={
+
+if(condition==true)
+{
+statement 1;
+}
+else if(condition==69)
+{
+statement 69;
+}
+else
+{
+statement 2;
+}
+
+
+
+
+})()
+}
+
+
+
+__________________________________________________________________________________________________________________________________________________
+                 REACT HOOKS 
+
+
+
+ABOVE 16.8 VERSION
+can be used only in functional based components not in class based components
+
+
+
+1. UseState Hook
+value show/update and all karkne ke liye 
+
+
+
+
+
+const[ A,setA]=useState(initialValue);
+
+A--> assigns the value to the first element
+setA--> updater function jo ki value ko update karega
+initialValue--> pass the initial value to useState hook
+
+
+A, setA are arguments
+
+setA is a function in itself
+
+
+
+
+
+//__________________________________________________________________________________________________________________________________________________
+
+
+code before react hooks
+
+
+
+
+
+
+____________________________________
+
+App.css
+____________________________________
+
+.App {
+  text-align: center;
+}
+
+
+
+
+
+____________________________________
+
+App,js
+____________________________________
+
+import './App.css';
+import H from './comp/H.jsx'
+function App() {
+  return (
+    <div className="App">
+
+{/* // this is to send props name ka props bheja jyga  */}
+<H name="This is to send props"/>
+
+<H name="Doosra props bheja dono print honge"/>
+
+<H name="wasi" age={19}/>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+____________________________________
+H,jsx
+____________________________________
+import './H.css'
+
+
+
+import propTypes from 'prop-types'
+// to import prop types 
+
+
+
+
+const H=(props)=>{
+    return(
+    <div class="H">
+  <h1 style={{color:"blue"}}>hello this is H</h1>
+<h2>{props.name}</h2>
+<h1>{props.age}</h1>
+{/* do props bhejenge to dono baar poori file call hogi  */}
+
+</div>
+    )
+}
+H.propTypes={
+    name:propTypes.string,
+    age:propTypes.number
+}
+
+
+//agar app se props na  pass ho to by default ye pass hoga
+
+H.defaultProps={
+    name:"Name not entered",
+    age:0
+
+}
+// jab complex projects me kaam karte h tab ye chez code ko efficient banati hai
+// always use proptypes
+
+
+export default H;
+
+
+
+
+
+
+
+____________________________________
+H.css
+____________________________________
+
+.H{
+    background-color: red;
+}
+
+
+
+
+
+//________________________________________________________________________________________________________________
+
+
+app.js
+
+
+            
+//_______________________________________________________________________________-
+import { useState } from 'react';
+import './App.css';
+import H from './comp/H.jsx'
+// import React,{ useState } from 'react';
+//thats how we import use state
+
+
+function App() {
+ 
+  function inc(){
+setnum(num+1) ; //  usestate ke andar ki value badh jygi
+
+  }
+
+
+  function dec(){
+    setnum(num-1) ; //  usestate ke andar ki value ghat jygi
+    
+      }
+    
+
+
+const [num,setnum]=useState(1);// 1 ki jagah kch b rakhdo wohi display ho jyga
+
+
+  return (
+    <div className="App">
+
+
+
+
+<H/>
+  
+
+<h1  className="heading " >{num}</h1>
+{/* num likha to 1 aagaya jo ki initial value thi */}
+
+
+    <div className="main">
+      <button className='btn' onClick={inc}>Increment</button>
+      <button className='btn' onClick={dec}>Decrement</button>
+
+    </div>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+app.css
+
+
+
+.App {
+  text-align: center;
+}
+
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+}
+
+.btn{
+  background-color: aquamarine;
+  padding: 2rem ;
+  margin: 7px;
+
+  
+}
+.heading{
+  position: absolute;
+background-color:blueviolet;
+top: 30%;
+width: 100%;
+font-size: 2rem;
+}
+
+
+
+
+
+

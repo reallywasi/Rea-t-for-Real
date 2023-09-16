@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+}
+
+.btn{
+  background-color: aquamarine;
+  padding: 2rem ;
+  margin: 7px;
+
+  
+}
+.heading{
+  position: absolute;
+background-color:blueviolet;
+top: 30%;
+width: 100%;
+font-size: 2rem;
+}
